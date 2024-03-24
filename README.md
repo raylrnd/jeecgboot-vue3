@@ -76,11 +76,11 @@ pnpm install
 - 配置接口地址 `.env.development`
 
 ```bash
-VITE_PROXY = [["/jeecgboot","http://localhost:9797/jeecg-boot"],["/upload","http://localhost:3300/upload"]]
-VITE_GLOB_DOMAIN_URL=http://localhost:9797/jeecg-boot
+VITE_PROXY = [["/jeecgboot","http://jeecg-boot-system:9797/jeecg-boot"],["/upload","http://localhost:3300/upload"]]
+VITE_GLOB_DOMAIN_URL=http://jeecg-boot-system:9797/jeecg-boot
 ```
 
-> 说明：把`http://localhost:8080/jeecg-boot` 换成自己地址，其他不用改。
+> 说明：把`http://jeecg-boot-system:8080/jeecg-boot` 换成自己地址，其他不用改。
 
 
 - run
@@ -141,7 +141,7 @@ docker run --name jeecgboot-vue3-nginx -p 80:80 -d jeecgboot-vue3
 
 - 访问前台
 
-http://localhost
+http://jeecg-boot-system
 
 ## Docker镜像启动前端(微服务模式)
 > 这里只写与单体的区别步骤
