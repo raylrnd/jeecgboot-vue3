@@ -35,5 +35,6 @@ export const useGlobSetting = (): Readonly<GlobConfig> => {
     viewUrl: VITE_GLOB_ONLINE_VIEW_URL,
   };
   window._CONFIG['domianURL'] = VITE_GLOB_DOMAIN_URL;
+  window._CONFIG['reportURL'] = 'http://jeecg-boot-system:9797/jeecg-boot';
   return glob as Readonly<GlobConfig>;
 };
