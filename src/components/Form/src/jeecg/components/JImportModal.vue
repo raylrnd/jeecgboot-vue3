@@ -5,7 +5,7 @@
       <div style="margin: 0 5px 5px" v-if="online">
         <span style="display: inline-block; height: 32px; line-height: 32px; vertical-align: middle">是否开启校验:</span>
         <span style="margin-left: 6px">
-          <a-switch :checked="validateStatus == 1" @change="handleChangeValidateStatus" checked-children="是" un-checked-children="否" />
+          <a-switch :checked="validateStatus == 1" @change="handleChangeValidateStatus" checked-children="是" un-checked-children="否" :disabled="true" />
         </span>
       </div>
       <!--上传-->
@@ -56,6 +56,7 @@
     },
     emits: ['ok', 'register'],
     setup(props, { emit, refs }) {
+
       const { createMessage, createWarningModal } = useMessage();
       //注册弹框
       const [register, { closeModal }] = useModalInner((data) => {
@@ -70,7 +71,7 @@
       const uploadAction = ref('');
       const foreignKeys = ref('');
       //校验状态
-      const validateStatus = ref(0);
+      const validateStatus = ref(1);
       const getBindValue = Object.assign({}, unref(props), unref(attrs));
       //监听url
       watchEffect(() => {
@@ -165,7 +166,7 @@
         fileList.value = [];
         uploading.value = false;
         foreignKeys.value = arg;
-        validateStatus.value = 0;
+        validateStatus.value = 1;
       }
 
       return {
