@@ -1,7 +1,7 @@
 <template>
   <BasicModal>
     <div style="margin: 10px 20px 20px">
-      <Select v-model="selectedMonthYear" :style="{ width: '150px' }" :placeholder="placeholderText">
+      <Select v-model="selectedMonthYear" :style="{ width: '150px' }" :placeholder="placeholderText" @change="updateSelectedMonthYear">
         <option v-for="option in options" :value="option.value" :key="option.value">
           {{ option.text }}
         </option>
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { Select } from 'ant-design-vue';
 import { getSalary } from './SalaryCalculate.api';
 import { message } from 'ant-design-vue';
@@ -40,8 +40,17 @@ function generatePast50YearsOptions() {
   return options;
 }
 
+const updateSelectedMonthYear = (value) => {
+  selectedMonthYear.value = value;
+};
+
 onMounted(() => {
   options.value = generatePast50YearsOptions();
+});
+
+// 监视 selectedMonthYear 的变化
+watch(selectedMonthYear, (newValue) => {
+  console.log(`当前选择的月份和年份是: ${newValue}`);
 });
 
 const placeholderText = currentYearMonth;
