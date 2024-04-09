@@ -76,8 +76,8 @@ pnpm install
 - 配置接口地址 `.env.development`
 
 ```bash
-VITE_PROXY = [["/jeecgboot","http://localhost:8080/jeecg-boot"],["/upload","http://localhost:3300/upload"]]
-VITE_GLOB_DOMAIN_URL=http://localhost:8080/jeecg-boot
+VITE_PROXY = [["/jeecgboot","http://www.salary.gdhzairport.com:8080/jeecg-boot"],["/upload","http://www.salary.gdhzairport.com:3300/upload"]]
+VITE_GLOB_DOMAIN_URL=http://www.salary.gdhzairport.com:8080/jeecg-boot
 ```
 
 > 说明：把`http://localhost:8080/jeecg-boot` 换成自己地址，其他不用改。
